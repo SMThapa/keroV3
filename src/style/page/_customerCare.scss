@@ -1,0 +1,247 @@
+.customerCare {
+  color: #000;
+  overflow: hidden;
+
+  .banner {
+    height: clamp(250px, 100vh, 550px);
+    width: 100%;
+
+    img {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+    }
+  }
+
+  .below-banner {
+    padding: 5rem 15px;
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+
+    .customer-description {
+      margin-bottom: 4rem;
+      font-size: 1.4rem;
+      opacity: 0.7;
+      font-weight: 300;
+    }
+
+    .company-info {
+      display: flex;
+      gap: 2rem;
+      flex-wrap: wrap;
+
+      .section {
+        flex: 1 1 45%;
+        min-width: 280px;
+        padding: 25px;
+        border: 3px solid rgba(0, 0, 0, 0.2);
+        border-radius: 25px;
+        margin-bottom: 2rem;
+
+        .section-title {
+          font-size: 1.8rem;
+          text-transform: capitalize;
+          margin-bottom: 1rem;
+
+          svg {
+            color: #000;
+          }
+        }
+
+        .title {
+          font-size: 1.2rem;
+          text-transform: capitalize;
+          margin-bottom: 0.5rem;
+          opacity: 0.6;
+        }
+
+        a,
+        p {
+          display: inline-block;
+          margin-bottom: 1.5rem;
+          color: #000;
+        }
+      }
+    }
+
+    .app-section {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      padding: 25px;
+      border: 3px solid rgba(0, 0, 0, 0.2);
+      border-radius: 25px;
+      margin-bottom: 4rem;
+
+      section {
+        flex: 1 1 45%;
+        min-width: 280px;
+
+        .section-title {
+          font-size: 1.8rem;
+          text-transform: capitalize;
+          margin-bottom: 1rem;
+
+          svg {
+            color: #000;
+          }
+        }
+
+        .title {
+          font-size: 1.2rem;
+          text-transform: capitalize;
+          margin-bottom: 0.5rem;
+          opacity: 0.6;
+        }
+
+        img {
+          height: 100%;
+          width: 100%;
+          object-fit: contain;
+        }
+      }
+    }
+
+    .form-header {
+      margin-top: 5rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+
+      .form-title {
+        font-size: 2rem;
+        text-align: left;
+        flex: 1 1 30%;
+        min-width: 240px;
+      }
+
+      .form-description {
+        font-size: 1.3rem;
+        opacity: 0.7;
+        font-weight: 300;
+        flex: 1 1 65%;
+        min-width: 240px;
+      }
+    }
+
+    form {
+      max-width: 700px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 40px 0;
+
+      .form-group {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 25px;
+
+        label {
+          font-size: 14px;
+          margin-bottom: 4px;
+          font-weight: 400;
+        }
+
+        input,
+        select,
+        textarea {
+          border: none;
+          border-bottom: 1px solid #999;
+          padding: 5px 4px 2px;
+          font-size: 18px;
+          outline: none;
+          font-family: inherit;
+          font-weight: 300;
+
+          &:focus {
+            border-bottom: 1px solid #000;
+          }
+        }
+
+        textarea {
+          resize: vertical;
+          min-height: 100px;
+          color: #000;
+        }
+      }
+
+      .submit-btn {
+        width: 150px;
+        background-color: #0057d8;
+        color: #fff;
+        border: none;
+        border-radius: 25px;
+        padding: 10px;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+
+        &:hover {
+          background-color: #0044aa;
+        }
+      }
+    }
+  }
+
+  // RESPONSIVE STYLES
+
+  @media (max-width: 1024px) {
+    .below-banner {
+      padding: 3rem 15px;
+
+      .customer-description {
+        font-size: 1.2rem;
+      }
+
+      .form-header {
+        flex-direction: column;
+
+        .form-title,
+        .form-description {
+          text-align: left;
+        }
+      }
+    }
+  }
+
+  @media (max-width: 768px) {
+    .banner {
+      height: 45vh;
+    }
+
+    .below-banner {
+      .customer-description {
+        font-size: 1rem;
+        margin-bottom: 2rem;
+      }
+
+      .company-info {
+        flex-direction: column;
+
+        .section {
+          width: 100%;
+        }
+      }
+
+      .app-section {
+        flex-direction: column;
+
+        section {
+          width: 100%;
+        }
+      }
+
+      .form-header {
+        margin-top: 3rem;
+
+        .form-title {
+          font-size: 1.6rem;
+        }
+
+        .form-description {
+          font-size: 1rem;
+        }
+      }
+    }
+  }
+}
