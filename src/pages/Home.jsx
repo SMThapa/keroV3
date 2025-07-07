@@ -194,10 +194,9 @@ export const Home = () => {
       }catch(err){
         console.log(err.response)
         setApiError(err.response.data.errors)
-
-      }finally{
-        setBtnLoading(false)
         setSuccess("❌ Failed to send message!") 
+      }finally{
+        setBtnLoading(false)        
       }
     }
 

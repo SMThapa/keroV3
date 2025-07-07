@@ -328,11 +328,11 @@ export const LocateOurStore = () => {
                             </div>
 
                             <button type="submit" className="submit-btn" disabled={btnLoading} >{btnLoading ? <span className='btn-loader'></span>:'Submit'} </button>
-                                {success && (
+                            {success && (
                                 <p style={{marginTop:'25px'}}>
                                     {success}
                                 </p>
-                                )}
+                            )}
                         </form>
                     </div>
 

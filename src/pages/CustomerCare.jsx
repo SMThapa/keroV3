@@ -59,21 +59,31 @@ export const CustomerCare = () => {
     e.preventDefault()
     setSuccess("")
     setApiError({})
-    async function submitForm() {
-      try {
-        const res = await axios.post(baseUrl + '/api/contact', formData, {
+    async function submitForm(){
+      try{
+        const res = await axios.post(baseUrl+'/api/contact', formData , {
           headers: {
             'Content-Type': 'application/json',
           },
-        });
-        generateNumber()
+        });        
+        generateNumber()             
         e.target.check_human.value = ''
-        setSuccess(res.data.message)             
+        setSuccess(res.data.message)               
+        setFormData({
+          name: '',
+          email: '',
+          phone: '',
+          state: '',
+          city: '',
+          message: '', 
+        })
+        setSuccess("✅ Message sent successfully!")     
       }catch(err){
         console.log(err.response)
         setApiError(err.response.data.errors)
+        setSuccess("❌ Failed to send message!") 
       }finally{
-        setBtnLoading(false)
+        setBtnLoading(false)        
       }
     }
 
@@ -168,8 +178,8 @@ export const CustomerCare = () => {
             <input type="email" id="email" name="email" value={formData.email} onChange={e => handleChange(e)} required />
           </div>
           <div className="form-group">
-            <label htmlFor="city">State*</label>
-            <select id="city" name="state" onChange={e=>handleChange(e)} required>
+            <label htmlFor="state">State*</label>
+            <select id="state" name="state" onChange={e=>handleChange(e)} value={formData.state} required>
                 <option value="">Select State</option>
                 <option value="andhra-pradesh">Andhra Pradesh</option>
                 <option value="arunachal-pradesh">Arunachal Pradesh</option>
@@ -223,12 +233,12 @@ export const CustomerCare = () => {
             <input type="number" id="human-check" name="check_human" required />
           </div>
 
-          <button type="submit" className="submit-btn">SUBMIT </button>
-            {success && (
-              <p style={{marginTop:'25px'}}>
-                {success}
-              </p>
-            )}
+          <button type="submit" className="submit-btn" disabled={btnLoading}>{btnLoading ? <span className='btn-loader'></span>:'Submit'} </button>
+          {success && (
+            <p style={{marginTop:'12px'}}>
+              {success}
+            </p>
+          )}
         </form>
       </div>
     </div>
