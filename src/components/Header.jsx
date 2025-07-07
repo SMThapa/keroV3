@@ -244,21 +244,7 @@ export const Header = () => {
               </ul>
             </li>
 
-                
-              <li className={`submenu ${activeIndex === 0 ? "active openSub hideInMobile" : "hideInMobile"}`} onClick={(e) => toggleSubmenu(0, e)}>
-                <NavLink to="/product/faucet">
-                  <img src= "/icons/Products.png" alt="catalogue" className="hideInDesktop" loading="lazy" />
-
-                  Products 
-                </NavLink>
-
-              </li>
-
-
-            <li><NavLink to="/catalogue"><img src= "/icons/catalogue.png" alt="catalogue" className="hideInDesktop" loading="lazy" />E-Catalogue</NavLink></li>
-            <li><NavLink to="/locate-our-store"><img src= "/icons/wheretobuy.png" alt="wheretobuy" className="hideInDesktop" loading="lazy" />Where to Buy</NavLink></li>
-
-            <li className={`submenu ${activeIndex === 2 ? "active openSub" : ""}`} onClick={(e) => toggleSubmenu(2, e)}>
+                        <li className={`submenu ${activeIndex === 2 ? "active openSub" : ""}`} onClick={(e) => toggleSubmenu(2, e)}>
               <p>
                 <img src= "/icons/More.png" alt="catalogue" className="hideInDesktop" loading="lazy" />
                 About Us <span className="submenu-icon">
@@ -280,6 +266,22 @@ export const Header = () => {
                 ))}
               </ul>
             </li>
+
+                
+              <li className={`submenu ${activeIndex === 0 ? "active openSub hideInMobile" : "hideInMobile"}`} onClick={(e) => toggleSubmenu(0, e)}>
+                <NavLink to="/product/faucet">
+                  <img src= "/icons/Products.png" alt="catalogue" className="hideInDesktop" loading="lazy" />
+
+                  Products 
+                </NavLink>
+
+              </li>
+
+
+            <li><NavLink to="/catalogue"><img src= "/icons/catalogue.png" alt="catalogue" className="hideInDesktop" loading="lazy" />E-Catalogue</NavLink></li>
+            <li><NavLink to="/locate-our-store"><img src= "/icons/wheretobuy.png" alt="wheretobuy" className="hideInDesktop" loading="lazy" />Where to Buy</NavLink></li>
+
+
 
             <li className={`submenu ${activeIndex === 1 ? "active openSub" : ""}`} onClick={(e) => toggleSubmenu(1, e)}>
               <p>

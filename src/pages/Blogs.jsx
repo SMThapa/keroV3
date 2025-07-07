@@ -76,8 +76,13 @@ export const Blogs = () => {
         const fetchData = async () => {
             try{        
                 const response = await axios.get(baseUrl+'/api/blogs', { headers: { 'Content-Type': 'application/json' } });                                                           
-                const pp = response.data.data.filter(obj => obj.is_popular == true);                
-                setLatestPost(response.data.data)                
+                const pp = response.data.data.filter(obj => obj.is_popular == true);
+                const lp = response.data.data.filter(obj => obj.is_popular == false);
+
+
+                
+                setLatestPost(lp);
+                setPopularPost(pp);            
             }catch(err){
                 console.log(err)
             }
@@ -163,12 +168,14 @@ export const Blogs = () => {
             }}
             onSwiper={(swiper) => (swiperRefBlog2.current = swiper)}
         >
-            {blogPopularPosts.map((blog) => (
+            {popularPost.map((blog) => (
             <SwiperSlide key={blog.id}>
                 <div className="inside text-left">
-                <img src={blog.img} alt={blog.title} className="swiperImg" />
-                <h3>{blog.title}</h3>
-                <p>{blog.desc}</p>
+                    <Link to={`/blog/${blog.title.split(" ").join("_")}`}>
+                        <img src={blog.banner_image} alt="blogImg" className="swiperImg" />
+                    </Link>
+                    <p className="blog-date">{formatDate(blog.published_date)} <span className="space"></span> | <span className="space"></span> By Kerovit</p>
+                    <h3>{blog.title}</h3>                
                 </div>
             </SwiperSlide>
             ))}
@@ -177,7 +184,7 @@ export const Blogs = () => {
         {/* <button type="button" onClick={handleNextBlogSlide2}>
             Swipe <BsArrowRight className="right_arrow" />
         </button> */}
-        <Link to = "/blog/latestPost">
+        <Link to = "/blog/popularPost">
 
         <button type="button">
             Show more <BsArrowRight className="right_arrow" />

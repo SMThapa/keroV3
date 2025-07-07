@@ -4,7 +4,7 @@ import { IoFilter } from "react-icons/io5";
 import axios from "axios";
 import { Link } from "react-router-dom";
 
-export const LatestPost = () => {
+export const PopularPost = () => {
   const [isFilterOpen, setIsFilterOpen] = useState(false);
   const [openSections, setOpenSections] = useState({
     month: false,
@@ -28,7 +28,7 @@ export const LatestPost = () => {
           headers: { "Content-Type": "application/json" },
         });
 
-        const lp = response.data.data.filter((obj) => obj.is_popular == false);
+        const lp = response.data.data.filter((obj) => obj.is_popular == true);
         setLatestPosts(lp);
       } catch (err) {
         console.error("Failed to fetch blogs:", err);
@@ -92,11 +92,9 @@ const handleFilterSelection = (type, value) => {
     <main className={`latestPost ${isFilterOpen ? "blur-background" : ""}`}>
       <div className="latestPost_contents">
         <div className="content">
-          <h2 className="title">Latest Posts</h2>
+          <h2 className="title">Popular Posts</h2>
           <p>
-            Stay updated with tech innovation, product launches, and event showcases to know how
-            Kerovit continues to evolve bathrooms!
-          </p>
+            Catch up on the stories, ideas, insights, and inspiration that our readers can’t get enough of.!</p>
         </div>
 
         {/* Filter UI */}

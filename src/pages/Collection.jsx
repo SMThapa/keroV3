@@ -14,10 +14,17 @@ import { FaChevronLeft } from "react-icons/fa";
 export const Collection = () => {
 
   const {series} = useParams();
-  const [collData, setCollData] = useState([])
+  const [collData, setCollData] = useState([]);
+  const [pageHeaderData, setPageHeaderData] = useState([]);
+  const [pageDescpData, setPageDescpData] = useState([]);
+
   useEffect(()=>{    
     const data = CollectionData.filter(ojb => ojb.page == series)
-    setCollData(data[0].products)      
+    setCollData(data[0].products)
+    setPageHeaderData(data[0].pageHeader);
+    setPageDescpData(data[0].pageDescription);
+
+
   },[series])
   
   const swiperRef = useRef(null);
@@ -52,9 +59,15 @@ export const Collection = () => {
       {
         !loadSimulate ?
         <main className="klassic">
+            <div className="klassic-header">
+              <h2>{pageHeaderData}</h2>
+              <p>{pageDescpData}</p>
+            </div>
           <div className="klassic_slider view_on_desktop">
+
             {
               collData.length > 0 &&
+              
               <Swiper
                 modules={[Pagination]}
                 spaceBetween={10}
