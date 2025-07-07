@@ -70,11 +70,11 @@ export const CustomerCare = () => {
         });
         generateNumber()
         e.target.check_human.value = ''
-        setSuccess(res.data.message)               
+        setSuccess(res.data.message)             
       }catch(err){
         console.log(err.response)
         setApiError(err.response.data.errors)
-      } finally {
+      }finally{
         setBtnLoading(false)
       }
     }
@@ -82,10 +82,10 @@ export const CustomerCare = () => {
     if (e.target.check_human.value == (num1 + num2)) {
       setBtnLoading(true)
       submitForm()
-      setError('')
-    } else {
+      setError('')            
+    }else{
       setError('Incorrect!!!')
-      setSuccess(false)
+      setSuccess(false) 
     }
 
     console.log(formData)
@@ -172,36 +172,36 @@ export const CustomerCare = () => {
           </div>
           <div className="form-group">
             <label htmlFor="city">State*</label>
-            <select id="city" name="state" onChange={e => handleChange(e)} required>
-              <option value="">Select State</option>
-              <option value="andhra-pradesh">Andhra Pradesh</option>
-              <option value="arunachal-pradesh">Arunachal Pradesh</option>
-              <option value="assam">Assam</option>
-              <option value="bihar">Bihar</option>
-              <option value="chhattisgarh">Chhattisgarh</option>
-              <option value="goa">Goa</option>
-              <option value="gujarat">Gujarat</option>
-              <option value="haryana">Haryana</option>
-              <option value="himachal-pradesh">Himachal Pradesh</option>
-              <option value="jharkhand">Jharkhand</option>
-              <option value="karnataka">Karnataka</option>
-              <option value="kerala">Kerala</option>
-              <option value="madhya-pradesh">Madhya Pradesh</option>
-              <option value="maharashtra">Maharashtra</option>
-              <option value="manipur">Manipur</option>
-              <option value="meghalaya">Meghalaya</option>
-              <option value="mizoram">Mizoram</option>
-              <option value="nagaland">Nagaland</option>
-              <option value="odisha">Odisha</option>
-              <option value="punjab">Punjab</option>
-              <option value="rajasthan">Rajasthan</option>
-              <option value="sikkim">Sikkim</option>
-              <option value="tamil-nadu">Tamil Nadu</option>
-              <option value="telangana">Telangana</option>
-              <option value="tripura">Tripura</option>
-              <option value="uttar-pradesh">Uttar Pradesh</option>
-              <option value="uttarakhand">Uttarakhand</option>
-              <option value="west-bengal">West Bengal</option>
+            <select id="city" name="state" onChange={e=>handleChange(e)} required>
+                <option value="">Select State</option>
+                <option value="andhra-pradesh">Andhra Pradesh</option>
+                <option value="arunachal-pradesh">Arunachal Pradesh</option>
+                <option value="assam">Assam</option>
+                <option value="bihar">Bihar</option>
+                <option value="chhattisgarh">Chhattisgarh</option>
+                <option value="goa">Goa</option>
+                <option value="gujarat">Gujarat</option>
+                <option value="haryana">Haryana</option>
+                <option value="himachal-pradesh">Himachal Pradesh</option>
+                <option value="jharkhand">Jharkhand</option>
+                <option value="karnataka">Karnataka</option>
+                <option value="kerala">Kerala</option>
+                <option value="madhya-pradesh">Madhya Pradesh</option>
+                <option value="maharashtra">Maharashtra</option>
+                <option value="manipur">Manipur</option>
+                <option value="meghalaya">Meghalaya</option>
+                <option value="mizoram">Mizoram</option>
+                <option value="nagaland">Nagaland</option>
+                <option value="odisha">Odisha</option>
+                <option value="punjab">Punjab</option>
+                <option value="rajasthan">Rajasthan</option>
+                <option value="sikkim">Sikkim</option>
+                <option value="tamil-nadu">Tamil Nadu</option>
+                <option value="telangana">Telangana</option>
+                <option value="tripura">Tripura</option>
+                <option value="uttar-pradesh">Uttar Pradesh</option>
+                <option value="uttarakhand">Uttarakhand</option>
+                <option value="west-bengal">West Bengal</option>
 
               <option value="andaman-nicobar">Andaman and Nicobar Islands</option>
               <option value="chandigarh">Chandigarh</option>
@@ -228,8 +228,8 @@ export const CustomerCare = () => {
 
           <button type="submit" className="submit-btn">SUBMIT </button>
             {success && (
-              <p>
-                ✅ Message sent successfully!
+              <p style={{marginTop:'25px'}}>
+                {success}
               </p>
             )}
         </form>
