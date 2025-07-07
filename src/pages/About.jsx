@@ -133,7 +133,7 @@ export const About = () => {
             <p className="p3">Kerovit is a brand Made in India. Our journey is powered by a dedicated workforce and a strong presence across the country:</p>
             <ul>
               <li>
-              <p>16 Display Centers/Offices</p>
+              <p>16 Experience Centers</p>
               </li>
               <li>
                 <p>212 Kerovit Studios</p>
@@ -144,9 +144,9 @@ export const About = () => {
             </ul>
 
             <p className="p3">
-            Our state-of-the-art manufacturing plant in Gailpur, Rajasthan, spans over 2 lakh sq. ft., with an annual capacity of 1 million faucets. Crafted with solid metal for superior strength and durability, our faucets exude excellence throughout all its designs. <br/><br/>
+            Our state-of-the-art manufacturing plant in Gailpur, Rajasthan, spans over 2 lakh sq. ft., with an annual capacity of 1.8 million faucets. Crafted with solid metal for superior strength and durability, our faucets exude excellence throughout all its designs. <br/><br/>
 
-            Meanwhile, our sanitaryware unit in Morbi, Gujarat, upholds international manufacturing standards with meticulous processes. Certified by ISI, this facility has an impressive annual capacity of 7.5 lakh pieces. <br/><br/>
+            Meanwhile, our sanitaryware unit in Morbi, Gujarat, upholds international manufacturing standards with meticulous processes. Certified by ISI, this facility has an impressive annual capacity of 1.2 million sanitaryware units. <br/><br/>
 
             Adding golden feathers to our relentless pursuit of excellence, we established the Kerovit Global Private Limited (KGPL), our second sanitaryware plant, in Morbi, Gujarat. Spanning over 6 lakh sq. meters, this cutting-edge facility is designed to shape the future of the Indian sanitaryware industry.<br/><br/>
 

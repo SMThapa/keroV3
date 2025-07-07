@@ -191,7 +191,7 @@ export const LocateOurStore = () => {
 
                     <div className="store-locator-box">
                         <div className="search-bar">
-                            <input type="text" placeholder="Pin code here.." onChange={(e)=>handleSearchInput(e.target.value)}  value={search || ""}/>
+                            <input type="text" placeholder="Pincode here.." onChange={(e)=>handleSearchInput(e.target.value)}  value={search || ""}/>
                             <button className="search-btn">
                             <div className="search-error">
                                 {searchErrorm}    

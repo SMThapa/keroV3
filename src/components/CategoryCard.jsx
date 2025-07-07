@@ -37,7 +37,7 @@ export const CategoryCard = ({ aurumImages, klassicImages, categoryInfo }) => {
                                 onClick={() => setActiveTab("aurum")}
                                 loading="lazy"
                             />
-                            <p>"Laurem" appears to be a name or a misspelling of "Lauren" or "Laurel"</p>
+                            <p>Our premium range crafted for symphony of expressions</p>
                         </div>
                         <div className="collection">
                             <img
@@ -47,7 +47,7 @@ export const CategoryCard = ({ aurumImages, klassicImages, categoryInfo }) => {
                                 onClick={() => setActiveTab("klassic")}
                                 loading="lazy"
                             />
-                            <p>"Laurem" appears to be a name or a misspelling of "Lauren" or "Laurel"</p>
+                            <p>Our Klassic range that fits in seamlessly for your daily use</p>
                         </div>
                     </div>
 

@@ -150,7 +150,7 @@ export const Footer = () => {
                           <p onClick={()=> toggleDesktopAccordion(2)}>More <span className={openDesktopAccordion == 2 ? 'flip' : ''}><img src={down} alt="" /></span></p>
                           <div className={` ${openDesktopAccordion === 2 ? "" : " hide"} footer_accordian ` } onClick={() => toggleDesktopAccordion(1)}>
                                <ul>
-                                <li><a href="/career">Career</a></li>
+                                <li><a href="/our-career">Career</a></li>
                                  <li><a href="/blog">Blog</a></li>
                               </ul>
                           </div>
