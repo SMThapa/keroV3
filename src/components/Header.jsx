@@ -261,7 +261,7 @@ export const Header = () => {
             <li className={`submenu ${activeIndex === 2 ? "active openSub" : ""}`} onClick={(e) => toggleSubmenu(2, e)}>
               <p>
                 <img src= "/icons/More.png" alt="catalogue" className="hideInDesktop" loading="lazy" />
-                ABout Us <span className="submenu-icon">
+                About Us <span className="submenu-icon">
                   <img src={subMenuIcon} alt="" loading="lazy"/>
                 </span>
                 <div className="submenu-button"></div>

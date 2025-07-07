@@ -70,7 +70,7 @@ export const CustomerCare = () => {
         });        
         generateNumber()             
         e.target.check_human.value = ''
-        setSuccess(res.data.message)               
+        setSuccess(res.data.message)             
       }catch(err){
         console.log(err.response)
         setApiError(err.response.data.errors)
@@ -87,8 +87,6 @@ export const CustomerCare = () => {
       setError('Incorrect!!!')
       setSuccess(false) 
     }
-
-    console.log(formData)
   } 
 
   return (
@@ -213,7 +211,7 @@ export const CustomerCare = () => {
             <input type="number" id="human-check" name="check_human" required />
           </div>
 
-          <button type="submit" className="submit-btn">SUBMIT </button>
+          <button type="submit" className="submit-btn" disabled={btnLoading} >{btnLoading ? <span className='btn-loader'></span>:'Submit'} </button>
             {success && (
               <p>
                 ✅ Message sent successfully!
