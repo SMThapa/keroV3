@@ -3,7 +3,7 @@ import plusIcon from "../../public/icons/plus.png";
 import minusIcon from "../../public/icons/minus.png";
 import 'react-inner-image-zoom/lib/styles.min.css';
 import InnerImageZoom from 'react-inner-image-zoom';
-import { useLocation, useParams } from 'react-router-dom'
+import { Link, useLocation, useParams } from 'react-router-dom'
 import axios from "axios";
 
 const variants = [
@@ -43,8 +43,8 @@ export const ProductSingle = () => {
                 setMainProduct(getProduct)
                 setSingleProduct(getProduct)                
                 const newVariants = [rest, ...getProduct.variants]
-                setVariants(newVariants)                                          
-                
+                setVariants(newVariants)                                                          
+
                 setSelectedImage(getProduct.product_picture)
                 setLoadSimulate(false)                           
             }catch(err){
@@ -82,7 +82,7 @@ export const ProductSingle = () => {
                             <p className="series">SERIES: {series.toUpperCase()}</p>                        
 
                             {
-                                mainProduct.variants && 
+                                mainProduct.variants.length > 0 && 
                                 <>
                                     <h3>Variants</h3>
                                     <div className="variants">
@@ -102,7 +102,9 @@ export const ProductSingle = () => {
                             <h3>Product Description</h3>
                             <p className="description_p">{singleProduct.product_description}</p>
 
-                            <button className="nearest-showroom-btn">NEAREST SHOWROOM</button>
+                            <Link to={'/locate-our-store'}>
+                                <button className="nearest-showroom-btn">NEAREST SHOWROOM</button>
+                            </Link>
                         </div>
 
 

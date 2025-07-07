@@ -292,7 +292,7 @@ export const Header = () => {
               <ul className="dropdown" style={{ display: activeIndex === 1 ? "block" : "none" }}>
                 {[
                   // { img: "/icons/whatsnew.png", label: "What's New", link: "#" },
-                  { img: "/icons/career.png", label: "Career", link: "/career" },
+                  { img: "/icons/career.png", label: "Career", link: "/our-career" },
                   { img: "/icons/resources.png", label: "Blog", link: "/blog" },
                   { img: "/icons/phone.png", label: "Customer Care", link: "/customer-care" },
                 ].map((item, index) => (
