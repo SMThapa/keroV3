@@ -151,7 +151,11 @@ export const Header = () => {
     setActiveIndex(null)
     handleCloseSearch()
   }, [pathname])  
-  
+
+  const handleAboutSubMenuToggle = (toggleSwitch, event) =>{    
+    toggleSubmenu(toggleSwitch, event)
+    setIsOpen(false)
+  }
 
   return (
     <div className="onlyNav">
@@ -244,13 +248,13 @@ export const Header = () => {
               </ul>
             </li>
 
-                        <li className={`submenu ${activeIndex === 2 ? "active openSub" : ""}`} onClick={(e) => toggleSubmenu(2, e)}>
+            <li className={`submenu ${activeIndex === 2 ? "active openSub" : ""}`} onClick={(e) => toggleSubmenu(2, e)}>
               <p>
                 <img src= "/icons/More.png" alt="catalogue" className="hideInDesktop" loading="lazy" />
                 About Us <span className="submenu-icon">
                   <img src={subMenuIcon} alt="" loading="lazy"/>
                 </span>
-                <div className="submenu-button"></div>
+                <span className="submenu-button"></span>
               </p>
               <ul className="dropdown" style={{ display: activeIndex === 2 ? "block" : "none" }}>
                 {[                  
@@ -261,7 +265,7 @@ export const Header = () => {
                 ].map((item, index) => (
                   <li key={index} onClick={(e) => e.stopPropagation()}>
                     <img src={item.img} alt={item.name} className="moreIcon" loading="lazy"/>
-                    <NavLink to={item.link} state={{ title: item.label.split(" ").join("_").split("'").join("") , from: location.pathname }} >{item.label}</NavLink>
+                    <NavLink to={item.link} state={{ title: item.label.split(" ").join("_").split("'").join("") , from: location.pathname }} onClick={(e) => handleAboutSubMenuToggle(2, e)}>{item.label}</NavLink>
                   </li>
                 ))}
               </ul>
@@ -289,7 +293,7 @@ export const Header = () => {
                 More <span className="submenu-icon">
                   <img src={subMenuIcon} alt="" loading="lazy"/>
                 </span>
-                <div className="submenu-button"></div>
+                <span className="submenu-button"></span>
               </p>
               <ul className="dropdown" style={{ display: activeIndex === 1 ? "block" : "none" }}>
                 {[

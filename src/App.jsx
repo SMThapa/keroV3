@@ -9,8 +9,7 @@ import { Loader } from "./components/Loader";
 function App() {  
 
   const [show, setShow] = useState(true)  
-  const location = useLocation();
-
+  const {pathname} = useLocation();
 
   function hideLoader(){
     setTimeout(() => {
@@ -24,10 +23,8 @@ function App() {
       top: 0,
       behavior: 'smooth',
     });
-    hideLoader()
-  }, [location])  
-
-
+    hideLoader()    
+  }, [pathname])  
 
   return (
     <>

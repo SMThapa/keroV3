@@ -127,13 +127,13 @@ export const CustomerCare = () => {
             <div className="section-title">customer care <RiCustomerService2Fill /></div>
 
             <div className="title">call</div>
-            <p>{customerData?.customer_care?.call}</p>
+            <p><a href={`tel:${customerData?.customer_care?.call}`}>{customerData?.customer_care?.call}</a></p>
 
             <div className="title">Tollfree Number</div>
-            <p>{customerData?.customer_care?.toll_free}</p>
+            <p><a href={`tel:${customerData?.customer_care?.toll_free}`}>{customerData?.customer_care?.toll_free}</a></p>
 
             <div className="title">Whats App Chat</div>
-            <p>{customerData?.customer_care?.whatsapp}</p>
+            <p><a href={`https://wa.me/${customerData?.customer_care?.whatsapp}`} target="blank">{customerData?.customer_care?.whatsapp}</a></p>
           </div>
         </div>
         <div className="app-section">

@@ -245,17 +245,23 @@
         }
 
         .belowImageContent {
-            margin: 30px 25px 50px 25px;
+            margin: 30px 0 50px;
+            padding: 0 10px;
 
             text-align: center;
 
-            p {
-                font-size: 14px;
+            p {                
                 line-height: 1.6;
                 color: #000;
                 font-family: 'Sinkin Sans 300 Light', sans-serif;
-                font-size: 9.854px;
+                font-size: 11px;
                 text-align: left;
+
+                @media (width < 800px){
+                    p.text-center{
+                        text-align: justify !important;
+                    }
+                }
             }
 
             .read_more {
@@ -331,12 +337,10 @@
         }
 
         p {
-            font-size: 14px;
+            font-size: 12px;
             line-height: 1.6;
             color: #000;
-            font-family: 'Sinkin Sans 300 Light', sans-serif;
-            font-size: 9.854px;
-
+            font-family: 'Sinkin Sans 300 Light', sans-serif;            
         }
 
         .swiper {
@@ -347,8 +351,7 @@
             .swiper-slide {
                 display: flex;
                 justify-content: center;
-                align-items: center;
-                padding: 20px;
+                align-items: center;                
                 transition: transform 0.3s ease-in-out;
 
                 &:hover {
@@ -358,7 +361,8 @@
                 img {
                     width: 100%;
                     max-width: 1500px;
-                    height: auto;
+                    height: 400px;
+                    object-fit: cover;
                 }
 
             }
@@ -476,8 +480,7 @@
             .swiper-slide {
                 display: flex;
                 justify-content: center;
-                align-items: center;
-                padding: 20px;
+                align-items: center;                
                 transition: transform 0.3s ease-in-out;
 
                 &:hover {
@@ -697,9 +700,10 @@
                         text-align: center;
                     }
                     p{
-                        margin: 1rem 0;
-                        font-size: .8rem;
-                        line-height: 1.5rem;
+                        margin: 12px 0 0;
+                        font-size: 13px;
+                        line-height: 1.3rem;
+                        color: #414141;
                     }
                     .primary-btn{
                         // width: fit-content;

@@ -8,6 +8,11 @@
         width: 100%;
         align-items: center;
     
+        @media (width < 800px){
+          background-position: 90% 0;
+          height: 70vh;          
+        }
+
         .banner_content{
           margin: 0px 40px 0 40px;
     
@@ -51,7 +56,8 @@
           // height: 450px;
           margin-bottom: 50px;
           .text {
-            width: 600px;
+            max-width: 600px;
+            width: 100%;
             padding: 60px;
             color: #fff;
             h4 {
@@ -138,10 +144,7 @@
 @media screen and (min-width: 1024px) {
   .warranty{
     .banner{
-
       height: 100vh !important;
-
-  
       .banner_content{
           margin: 0px 40px 0 40px;
   
@@ -167,7 +170,8 @@
     height: auto !important;
 
       .text {
-        width: 400px !important;
+        max-width: 400px !important;
+        width: 100%;
         padding: 20px !important;
         color: #fff;
         p{

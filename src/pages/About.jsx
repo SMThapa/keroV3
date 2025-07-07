@@ -75,12 +75,10 @@ export const About = () => {
   const from = location.state?.from;
   useEffect(() => {
     const isSamePage = from == "/about";
-    const delay = isSamePage ? 50 : 600;
-    console.log(title)
+    const delay = isSamePage ? 50 : 600;    
      if (title) {
       const timeout = setTimeout(() => {
-        const element = document.getElementById(title);
-        console.log(element)
+        const element = document.getElementById(title);        
         if (element) {
           element.scrollIntoView();
         } else {
@@ -176,14 +174,10 @@ export const About = () => {
           <Swiper
             modules={[Navigation, Pagination, Autoplay]}
             spaceBetween={10}
-            slidesPerView={2}
+            slidesPerView={1}
             pagination={{ clickable: true }}
-            navigation={{ nextEl: ".next-btn", prevEl: ".prev-btn" }}
-            loop
-            // breakpoints={{
-            //   640: { slidesPerView: 2 },
-            //   1024: { slidesPerView: 2 },
-            // }}
+            navigation={{ nextEl: ".next-btn", prevEl: ".prev-btn" }}            
+            loop={aboutData?.plants?.length > 1}
             onSwiper={setSwiperInstance}
           >
             {aboutData?.plants?.map((plant, index) => (
@@ -198,12 +192,12 @@ export const About = () => {
             ))}
           </Swiper>
 
-          {/* <div className="swipeButton" onClick={handleNextSlide}>
+          <div className="swipeButton" onClick={handleNextSlide}>
             <FaChevronRight />          
           </div>
           <div className="swipeButton" onClick={handlePrevSlide}>
             <FaChevronLeft />
-          </div> */}
+          </div>
 
           
           {/* <button type="button" className="swipeButton" onClick={handleNextSlide}><FaChevronRight className="right_arrow disableOnMobile" /><span className="disableOnDesktop">Swipe < BsArrowRight  className="right_arrow" /></span></button> */}
@@ -219,11 +213,12 @@ export const About = () => {
               delay: 2500,
               disableOnInteraction: false,
             }}
-            loop={true}
+            loop={aboutData?.certification_images?.length > 1}
             pagination={{ clickable: true }}
             
             navigation={{ nextEl: ".next-btn-cert", prevEl: ".prev-btn-cert" }}
             breakpoints={{
+              0:{slidesPerView: 3},
               640: { slidesPerView: 3 },
               1024: { slidesPerView: 4 },
             }}
