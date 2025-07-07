@@ -140,7 +140,7 @@ export const Home = () => {
   }, []);
 
 
-  const [success, setSuccess] = useState(false)
+  const [success, setSuccess] = useState('')
   const [num1, setNum1] = useState(0);
   const [num2, setNum2] = useState(0);
   const [numError, setError]= useState('')
@@ -182,22 +182,31 @@ export const Home = () => {
         generateNumber()             
         e.target.check_human.value = ''
         setSuccess(res.data.message)               
-        console.log(res)  
+        setFormData({
+          name: '',
+          email: '',
+          phone: '',
+          state: '',
+          city: '',
+          message: '', 
+        })
+        setSuccess("✅ Message sent successfully!")     
       }catch(err){
         console.log(err.response)
         setApiError(err.response.data.errors)
+
       }finally{
         setBtnLoading(false)
+        setSuccess("❌ Failed to send message!") 
       }
     }
 
     if(e.target.check_human.value == (num1 + num2)){
       setBtnLoading(true)
       submitForm()
-      setError('')            
+      setError('')             
     }else{
-      setError('Incorrect!!!')
-      setSuccess(false) 
+      setError('Incorrect!!!')      
     }
 
     console.log(formData)
@@ -438,19 +447,20 @@ export const Home = () => {
         <div className="inside_banner_content">
           <div className="contact_header"><span>submit</span> <h2>your query</h2></div>
           <form className="contact_form" onSubmit={e=>handleSubmit(e)}>
-            <input type="text" name="name" placeholder="Name  |" onChange={e=>handleChange(e)} required/>
-            <input type="email" name="email" placeholder="Email  |" onChange={e=>handleChange(e)} required/>
-            <input type="tel" name="phone" placeholder="Phone  |" onChange={e=>handleChange(e)} required/>
-            <input type="text" name="state" placeholder="State  |" onChange={e=>handleChange(e)} required/>
-            <input type="text" name="city" placeholder="City  |"onChange={e=>handleChange(e)} required/>
-            <input type="text" name="message" placeholder="Message  |" onChange={e=>handleChange(e)} required/>
+            <input type="text" name="name" placeholder="Name  |" onChange={e=>handleChange(e)} value={formData.name} required/>
+            <input type="email" name="email" placeholder="Email  |" onChange={e=>handleChange(e)} value={formData.email} required/>            
+            <input type="tel" name="phone" placeholder="Phone  |" onChange={e=>handleChange(e)} value={formData.phone} required/>            
+            {apiError.phone && <span style={{color:'red', marginLeft:'15px'}}>{apiError.phone}</span>}
+            <input type="text" name="state" placeholder="State  |" onChange={e=>handleChange(e)} value={formData.state} required/>
+            <input type="text" name="city" placeholder="City  |"onChange={e=>handleChange(e)} value={formData.city} required/>
+            <input type="text" name="message" placeholder="Message  |" onChange={e=>handleChange(e)} value={formData.message} required/>
             <label forhtml="check_human">What is {num1} + {num2}? <span style={{color:'red', marginLeft:'15px'}}>{numError}</span></label>
             <input type="number" id="check_human" name="check_human" placeholder="Are You Human?" required />
             
             <button type="submit" disabled={btnLoading}>{btnLoading ? <span className='btn-loader'></span>:'Submit'} </button>
             {success && (
-              <p style={{color:"white"}}>
-                ✅ Message sent successfully!
+              <p style={{color:"white", marginTop:'12px'}}>
+                {success}
               </p>
             )}
           </form>

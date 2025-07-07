@@ -70,10 +70,19 @@ export const CustomerCare = () => {
         });        
         generateNumber()             
         e.target.check_human.value = ''
-        setSuccess(res.data.message)             
+        setSuccess("✅ Message sent successfully!")         
+        setFormData({
+          name: '',
+          email: '',
+          phone: '',
+          state: '',
+          city: '',
+          message: '', 
+        })
       }catch(err){
         console.log(err.response)
         setApiError(err.response.data.errors)
+        setSuccess("❌ Failed to send message!") 
       }finally{
         setBtnLoading(false)
       }
@@ -84,8 +93,7 @@ export const CustomerCare = () => {
       submitForm()
       setError('')            
     }else{
-      setError('Incorrect!!!')
-      setSuccess(false) 
+      setError('Incorrect!!!')      
     }
   } 
 
@@ -157,9 +165,9 @@ export const CustomerCare = () => {
           </div>
           <div className="form-group">
             <label htmlFor="city">State*</label>
-            <select id="city" name="state" onChange={e=>handleChange(e)} required>
+            <select id="city" name="state" onChange={e=>handleChange(e)} value={formData.state} required>
                 <option value="">Select State</option>
-                <option value="andhra-pradesh">Andhra Pradesh</option>
+                <option value="andhra-pradesh" >Andhra Pradesh</option>
                 <option value="arunachal-pradesh">Arunachal Pradesh</option>
                 <option value="assam">Assam</option>
                 <option value="bihar">Bihar</option>
@@ -181,7 +189,7 @@ export const CustomerCare = () => {
                 <option value="punjab">Punjab</option>
                 <option value="rajasthan">Rajasthan</option>
                 <option value="sikkim">Sikkim</option>
-                <option value="tamil-nadu">Tamil Nadu</option>
+                <option value="tamil-nadu" >Tamil Nadu</option>
                 <option value="telangana">Telangana</option>
                 <option value="tripura">Tripura</option>
                 <option value="uttar-pradesh">Uttar Pradesh</option>
@@ -213,8 +221,8 @@ export const CustomerCare = () => {
 
           <button type="submit" className="submit-btn" disabled={btnLoading} >{btnLoading ? <span className='btn-loader'></span>:'Submit'} </button>
             {success && (
-              <p>
-                ✅ Message sent successfully!
+              <p style={{marginTop:'25px'}}>
+                {success}
               </p>
             )}
         </form>
