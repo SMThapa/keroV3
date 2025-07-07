@@ -3,22 +3,37 @@ import { Header } from "./components/Header";
 import { Footer } from "./components/Footer";
 import { FaWhatsapp } from "react-icons/fa";
 import { useLocation } from "react-router-dom";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import { Loader } from "./components/Loader";
 
 function App() {  
 
+  const [show, setShow] = useState(true)  
   const location = useLocation();
+
+
+  function hideLoader(){
+    setTimeout(() => {
+      setShow(false)
+    }, 3000);
+  }
+
   useEffect(()=>{
+    setShow(true)
     window.scrollTo({
       top: 0,
       behavior: 'smooth',
     });
-  }, [location])
+    hideLoader()
+  }, [location])  
+
+
 
   return (
     <>
+      <Loader showLoader={show}/>
       <Header/>
-        <AllRoutes/>
+        <AllRoutes/>        
         <div className="whatsapp-icon">
           <FaWhatsapp />
         </div>

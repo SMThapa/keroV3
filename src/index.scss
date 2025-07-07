@@ -22,7 +22,7 @@
 @use './style/components/footer';
 @use './style/components/storeCard';
 @use './style/skeletonLoading';
-
+@use './style/components/loader';
 html, body {
     margin: 0;
     padding: 0;
