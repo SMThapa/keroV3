@@ -53,7 +53,7 @@ export const Career = () => {
         </div>
     </div>
 
-    <div className="below-banner-desktop">
+    <div className="below-banner-desktop" style={{backgroundImage: `url(${careerData.below_image})`}}>
         <div className="belowbanner">
             <div className="belowBannerText">
                 <img src="/career/belowBannerText.png" alt="belowBannerText" />

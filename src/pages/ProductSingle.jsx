@@ -166,7 +166,7 @@ export const ProductSingle = () => {
                                     </button>
                                     {openSection === 2 && (
                                         <div className="dropdown-content">
-                                        <img src={singleProduct.design_files} alt="design_file" />
+                                        <a href={singleProduct.design_files} target="__blank" alt="design_file">View PDF</a>
                                         </div>
                                     )}
                                 </div>

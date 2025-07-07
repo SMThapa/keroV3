@@ -127,26 +127,26 @@ export const CustomerCare = () => {
           </div>
         </div>
         <div className="app-section">
-  <section className="app-text">
-    <div className="section-title">
-      Download Service App <IoMdDownload />
-    </div>
-    <div className="title">Service Query</div>
-  </section>
- 
-  <section className="app-visual">
-    <img src="/customer-care-kerovit.png" alt="Customer Care" className="brand-image" />
- 
-    <div className="app-buttons">
-      <a href="https://play.google.com/store/apps/details?id=com.vcarekerovit1&hl=en_IN" target="_blank" rel="noopener noreferrer" className="app-button">
-        <img src="/Google_Play_Store_black.webp" alt="Google Play" />
-      </a>
-      <a href="https://apps.apple.com/in/app/kerovit-customer-care/id1508130570" target="_blank" rel="noopener noreferrer" className="app-button">
-        <img src="/app-store-black.png" alt="App Store" />
-      </a>
-    </div>
-  </section>
-</div>
+          <section className="app-text">
+            <div className="section-title">
+              Download Service App <IoMdDownload />
+            </div>
+            <div className="title">Service Query</div>
+          </section>
+        
+          <section className="app-visual">
+            <img src="/customer-care-kerovit.png" alt="Customer Care" className="brand-image" />
+        
+            <div className="app-buttons">
+              <a href="https://play.google.com/store/apps/details?id=com.vcarekerovit1&hl=en_IN" target="_blank" rel="noopener noreferrer" className="app-button">
+                <img src="/Google_Play_Store_black.webp" alt="Google Play" />
+              </a>
+              <a href="https://apps.apple.com/in/app/kerovit-customer-care/id1508130570" target="_blank" rel="noopener noreferrer" className="app-button">
+                <img src="/app-store-black.png" alt="App Store" />
+              </a>
+            </div>
+          </section>
+        </div>
         <div className="form-header">
           <div className="form-title">Enquiry Form</div>
           <div className="form-description">
