@@ -1,6 +1,8 @@
 const CollectionData = [
     {
         page: "aurum",
+        pageHeader: "Aurum",
+        pageDescription: "Indulge in the luxury of Aurum, our exquisite collection that seamlessly blends elegance with nature's palette of perfection.",
         products : [
             { id: 1, img: "/aurum/Aurum collection- fauct.png", name: "Faucet", description:"From sculptural silhouettes to everyday essentials, our range of faucets, spanning the Aurum and Klassic collections, blends style with smooth performance in every turn." },
             { id: 2, img: "/aurum/Aurum collection-shower.png", name: "Shower", description:"Whether you need an energizing start or a calming wind-down, our vast range of Aurum and Klassic collections has it all to match your space." },
@@ -12,6 +14,8 @@ const CollectionData = [
     },
     {
         page: "klassic",
+        pageHeader: "Klassic",
+        pageDescription: "Bring home the true definition of timeless luxury with our Klassic collection, which maintains sophistication at its peak with elegant, minimal aesthetics.",
         products : [
             { id: 1, img: "/klassic_collection/Catagoury Selection Images-02.jpg", name: "Faucet", description:"From sculptural silhouettes to everyday essentials, our range of faucets, spanning the Aurum and Klassic collections, blends style with smooth performance in every turn." },
             { id: 2, img: "/klassic_collection/Catagoury Selection Images-04.jpg", name: "Shower", description:"Whether you need an energizing start or a calming wind-down, our vast range of Aurum and Klassic collections has it all to match your space." },

@@ -1,7 +1,7 @@
 import { Route, Routes } from "react-router-dom";
 import {CustomerCare, Categories, Home, Collection, ProductListing, ProductVariationListing, 
   ProductSingle, LocateOurStore, About, Career, Blogs, LatestPost, Catelogue, PageNotFound,
-  Warranty, BlogSingle} from '../pages/index';
+  Warranty, BlogSingle, PopularPost} from '../pages/index';
 
 export const AllRoutes = () => {
   return (
@@ -20,6 +20,8 @@ export const AllRoutes = () => {
       <Route path="/blog" element={<Blogs/>}/>
       <Route path="/blog/:blog" element={<BlogSingle/>}/>
       <Route path="/blog/latestPost" element={<LatestPost/>}/>
+      <Route path="/blog/popularPost" element={<PopularPost/>}/>
+
       <Route path="/catalogue" element={<Catelogue/>}/>
       <Route path="/customer-care" element={<CustomerCare/>}/>
       <Route path="/warranty" element={<Warranty/>}/>

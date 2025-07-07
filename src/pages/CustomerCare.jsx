@@ -7,17 +7,17 @@ import axios from "axios";
 export const CustomerCare = () => {
 
   const [customerData, setCustomerData] = useState({})
-  const customerURL = import.meta.env.VITE_API_CUSTOMERCARE;  
+  const customerURL = import.meta.env.VITE_API_CUSTOMERCARE;
   useEffect(() => {
     async function getData() {
       try {
-        const res = await axios.get(customerURL , {
+        const res = await axios.get(customerURL, {
           headers: {
             'Authorization': `Bearer gVSYUDhjLSXMDZSpVdPCiz9s`, // Replace with your actual API key
             'Content-Type': 'application/json', // Set content type if required
           },
         });
-        setCustomerData(res.data.data)        
+        setCustomerData(res.data.data)
       } catch (err) {
         console.error('Error:', err.message);
       }
@@ -30,17 +30,17 @@ export const CustomerCare = () => {
   const [success, setSuccess] = useState('')
   const [num1, setNum1] = useState(0);
   const [num2, setNum2] = useState(0);
-  const [numError, setError]= useState('')
+  const [numError, setError] = useState('')
   const [btnLoading, setBtnLoading] = useState(false)
   const [apiError, setApiError] = useState({})
 
-  const generateNumber = () =>{
+  const generateNumber = () => {
     setNum1(Math.floor(Math.random() * 100) + 1);
     setNum2(Math.floor(Math.random() * 100) + 1);
   }
-  useEffect(()=>{
+  useEffect(() => {
     generateNumber()
-  },[])
+  }, [])
 
   const baseUrl = import.meta.env.VITE_API_BASEURL;
   const [formData, setFormData] = useState({
@@ -49,47 +49,47 @@ export const CustomerCare = () => {
     phone: '',
     state: '',
     city: '',
-    message: '',  
+    message: '',
   })
-  const handleChange = (e) =>{
+  const handleChange = (e) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value
     })
   }
-  function handleSubmit(e){
-    e.preventDefault()            
-    setSuccess("")  
+  function handleSubmit(e) {
+    e.preventDefault()
+    setSuccess("")
     setApiError({})
-    async function submitForm(){
-      try{
-        const res = await axios.post(baseUrl+'/api/contact', formData , {
+    async function submitForm() {
+      try {
+        const res = await axios.post(baseUrl + '/api/contact', formData, {
           headers: {
             'Content-Type': 'application/json',
           },
-        });        
-        generateNumber()             
+        });
+        generateNumber()
         e.target.check_human.value = ''
-        setSuccess(res.data.message)               
-      }catch(err){
+        setSuccess(res.data.message)
+      } catch (err) {
         console.log(err.response)
         setApiError(err.response.data.errors)
-      }finally{
+      } finally {
         setBtnLoading(false)
       }
     }
 
-    if(e.target.check_human.value == (num1 + num2)){
+    if (e.target.check_human.value == (num1 + num2)) {
       setBtnLoading(true)
       submitForm()
-      setError('')            
-    }else{
+      setError('')
+    } else {
       setError('Incorrect!!!')
-      setSuccess(false) 
+      setSuccess(false)
     }
 
     console.log(formData)
-  } 
+  }
 
   return (
     <div className="customerCare">
@@ -113,7 +113,7 @@ export const CustomerCare = () => {
 
             <div className="title">info</div>
             <a href="mailto:info@kerovit.com">{customerData?.emails?.info_email}</a>
-            
+
           </div>
           <div className="section">
             <div className="section-title">customer care <RiCustomerService2Fill /></div>
@@ -128,15 +128,28 @@ export const CustomerCare = () => {
             <p>{customerData?.customer_care?.whatsapp}</p>
           </div>
         </div>
-        <div className="app-section">
-          <section>
-            <div className="section-title">Download Service App <IoMdDownload /></div>
-            <div className="title">Service Query</div>
-          </section>
-          <section>
-            <img src="/customer.png" alt="" />
-          </section>
-        </div>
+<div className="app-section">
+  <section className="app-text">
+    <div className="section-title">
+      Download Service App <IoMdDownload />
+    </div>
+    <div className="title">Service Query</div>
+  </section>
+
+  <section className="app-visual">
+    <img src="/customer-care-kerovit.png" alt="Customer Care" className="brand-image" />
+
+    <div className="app-buttons">
+      <a href="https://play.google.com/store/apps/details?id=com.vcarekerovit1&hl=en_IN" target="_blank" rel="noopener noreferrer" className="app-button">
+        <img src="/Google_Play_Store_black.webp" alt="Google Play" />
+      </a>
+      <a href="https://apps.apple.com/in/app/kerovit-customer-care/id1508130570" target="_blank" rel="noopener noreferrer" className="app-button">
+        <img src="/app-store-black.png" alt="App Store" />
+      </a>
+    </div>
+  </section>
+</div>
+
         <div className="form-header">
           <div className="form-title">Enquiry Form</div>
           <div className="form-description">
@@ -144,81 +157,81 @@ export const CustomerCare = () => {
             details below, and we’ll make sure the right
             team connects with you soon.</div>
         </div>
-        <form onSubmit={e=>handleSubmit(e)}>
+        <form onSubmit={e => handleSubmit(e)}>
           <div className="form-group">
             <label htmlFor="name">Name*</label>
-            <input type="text" id="name" name="name" value={formData.name} onChange={e=>handleChange(e)} required />
+            <input type="text" id="name" name="name" value={formData.name} onChange={e => handleChange(e)} required />
           </div>
           <div className="form-group">
-            <label htmlFor="mobile">Mobile* <span style={{color:'red', marginLeft:'15px'}}>{apiError.phone}</span></label>
-            <input type="tel" id="mobile" name="phone" value={formData.phone} onChange={e=>handleChange(e)} required />
+            <label htmlFor="mobile">Mobile* <span style={{ color: 'red', marginLeft: '15px' }}>{apiError.phone}</span></label>
+            <input type="tel" id="mobile" name="phone" value={formData.phone} onChange={e => handleChange(e)} required />
           </div>
           <div className="form-group">
             <label htmlFor="email">Email*</label>
-            <input type="email" id="email" name="email" value={formData.email} onChange={e=>handleChange(e)} required />
+            <input type="email" id="email" name="email" value={formData.email} onChange={e => handleChange(e)} required />
           </div>
           <div className="form-group">
             <label htmlFor="city">State*</label>
-            <select id="city" name="state" onChange={e=>handleChange(e)} required>
-                <option value="">Select State</option>
-                <option value="andhra-pradesh">Andhra Pradesh</option>
-                <option value="arunachal-pradesh">Arunachal Pradesh</option>
-                <option value="assam">Assam</option>
-                <option value="bihar">Bihar</option>
-                <option value="chhattisgarh">Chhattisgarh</option>
-                <option value="goa">Goa</option>
-                <option value="gujarat">Gujarat</option>
-                <option value="haryana">Haryana</option>
-                <option value="himachal-pradesh">Himachal Pradesh</option>
-                <option value="jharkhand">Jharkhand</option>
-                <option value="karnataka">Karnataka</option>
-                <option value="kerala">Kerala</option>
-                <option value="madhya-pradesh">Madhya Pradesh</option>
-                <option value="maharashtra">Maharashtra</option>
-                <option value="manipur">Manipur</option>
-                <option value="meghalaya">Meghalaya</option>
-                <option value="mizoram">Mizoram</option>
-                <option value="nagaland">Nagaland</option>
-                <option value="odisha">Odisha</option>
-                <option value="punjab">Punjab</option>
-                <option value="rajasthan">Rajasthan</option>
-                <option value="sikkim">Sikkim</option>
-                <option value="tamil-nadu">Tamil Nadu</option>
-                <option value="telangana">Telangana</option>
-                <option value="tripura">Tripura</option>
-                <option value="uttar-pradesh">Uttar Pradesh</option>
-                <option value="uttarakhand">Uttarakhand</option>
-                <option value="west-bengal">West Bengal</option>
+            <select id="city" name="state" onChange={e => handleChange(e)} required>
+              <option value="">Select State</option>
+              <option value="andhra-pradesh">Andhra Pradesh</option>
+              <option value="arunachal-pradesh">Arunachal Pradesh</option>
+              <option value="assam">Assam</option>
+              <option value="bihar">Bihar</option>
+              <option value="chhattisgarh">Chhattisgarh</option>
+              <option value="goa">Goa</option>
+              <option value="gujarat">Gujarat</option>
+              <option value="haryana">Haryana</option>
+              <option value="himachal-pradesh">Himachal Pradesh</option>
+              <option value="jharkhand">Jharkhand</option>
+              <option value="karnataka">Karnataka</option>
+              <option value="kerala">Kerala</option>
+              <option value="madhya-pradesh">Madhya Pradesh</option>
+              <option value="maharashtra">Maharashtra</option>
+              <option value="manipur">Manipur</option>
+              <option value="meghalaya">Meghalaya</option>
+              <option value="mizoram">Mizoram</option>
+              <option value="nagaland">Nagaland</option>
+              <option value="odisha">Odisha</option>
+              <option value="punjab">Punjab</option>
+              <option value="rajasthan">Rajasthan</option>
+              <option value="sikkim">Sikkim</option>
+              <option value="tamil-nadu">Tamil Nadu</option>
+              <option value="telangana">Telangana</option>
+              <option value="tripura">Tripura</option>
+              <option value="uttar-pradesh">Uttar Pradesh</option>
+              <option value="uttarakhand">Uttarakhand</option>
+              <option value="west-bengal">West Bengal</option>
 
-                <option value="andaman-nicobar">Andaman and Nicobar Islands</option>
-                <option value="chandigarh">Chandigarh</option>
-                <option value="dadra-nagar-haveli-daman-diu">Dadra & Nagar Haveli and Daman & Diu</option>
-                <option value="delhi">Delhi</option>
-                <option value="jammu-kashmir">Jammu and Kashmir</option>
-                <option value="ladakh">Ladakh</option>
-                <option value="lakshadweep">Lakshadweep</option>
-                <option value="puducherry">Puducherry</option>
+              <option value="andaman-nicobar">Andaman and Nicobar Islands</option>
+              <option value="chandigarh">Chandigarh</option>
+              <option value="dadra-nagar-haveli-daman-diu">Dadra & Nagar Haveli and Daman & Diu</option>
+              <option value="delhi">Delhi</option>
+              <option value="jammu-kashmir">Jammu and Kashmir</option>
+              <option value="ladakh">Ladakh</option>
+              <option value="lakshadweep">Lakshadweep</option>
+              <option value="puducherry">Puducherry</option>
             </select>
           </div>
           <div className="form-group">
             <label htmlFor="city">City*</label>
-            <input type="text" id="city" name="city" value={formData.city} onChange={e=>handleChange(e)} required />
+            <input type="text" id="city" name="city" value={formData.city} onChange={e => handleChange(e)} required />
           </div>
           <div className="form-group">
             <label htmlFor="city">Message*</label>
-            <textarea type="text" id="city" name="message" value={formData.message} onChange={e=>handleChange(e)} required />
+            <textarea type="text" id="city" name="message" value={formData.message} onChange={e => handleChange(e)} required />
           </div>
           <div className="form-group">
-            <label htmlFor="human-check">What is {num1} + {num2}? <span style={{color:'red', marginLeft:'15px'}}>{numError}</span></label>
+            <label htmlFor="human-check">What is {num1} + {num2}? <span style={{ color: 'red', marginLeft: '15px' }}>{numError}</span></label>
             <input type="number" id="human-check" name="check_human" required />
           </div>
 
           <button type="submit" className="submit-btn">SUBMIT </button>
-            {success && (
-              <p>
-                ✅ Message sent successfully!
-              </p>
-            )}
+          {success && (
+            <p>
+              ✅ Message sent successfully!
+            </p>
+          )}
         </form>
       </div>
     </div>

@@ -5,18 +5,26 @@ export const Warranty = () => {
                 <div className="banner">
                     <div className="banner_content">
                         <h2 className="banner_title">Warranty</h2>
-                        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aliquid, facilis! Eum dolorum sapiente officia</p>
+                        <p>Every Kerovit product carries our commitment to you with a long-term
+warranty that ensures care, convenience and confidence. We offer up to
+10 years of warranty across our range, ensuring you enjoy the same
+peace of mind long after the purchase. </p>
+<p>If you would like to know more about our warranty policy,  <br/><b><a href="#">click here</a></b></p>
                     </div>
                 </div>
 
                 <div className="warranty-form-container">
-            <p className="description">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed diam nonummy
-                nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
-                Ut wisi enim ad minim veniam, quis
-            </p>
 
-            <button className="activate-btn">To Activate Warranty</button>
+                    <div className="below-warranty-banner">
+                        <div className="text">
+                        <h2>Own a Kerovit product?</h2>
+                        <h4>Let’s make it official! </h4>
+                        <p>Activate your warranty to ensure seamless 
+                        service, faster support, and long-term peace of 
+                        mind. Just fill in your details below.</p>
+                        </div>
+                    </div>
+
 
             <form className="warranty-form">
                 <label>
@@ -63,7 +71,7 @@ export const Warranty = () => {
                     <input type="text" name="pincode" />
                 </label>
 
-                <button type="submit" className="submit-btn">Submit</button>
+                <button type="submit" className="submit-btn">ACTIVATE WARRANTY</button>
             </form>
         </div>
 
