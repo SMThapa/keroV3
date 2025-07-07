@@ -70,8 +70,8 @@ export const CustomerCare = () => {
         });
         generateNumber()
         e.target.check_human.value = ''
-        setSuccess(res.data.message)
-      } catch (err) {
+        setSuccess(res.data.message)               
+      }catch(err){
         console.log(err.response)
         setApiError(err.response.data.errors)
       } finally {
@@ -89,7 +89,7 @@ export const CustomerCare = () => {
     }
 
     console.log(formData)
-  }
+  } 
 
   return (
     <div className="customerCare">
@@ -227,11 +227,11 @@ export const CustomerCare = () => {
           </div>
 
           <button type="submit" className="submit-btn">SUBMIT </button>
-          {success && (
-            <p>
-              ✅ Message sent successfully!
-            </p>
-          )}
+            {success && (
+              <p>
+                ✅ Message sent successfully!
+              </p>
+            )}
         </form>
       </div>
     </div>

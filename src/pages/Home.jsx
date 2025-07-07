@@ -140,13 +140,27 @@ export const Home = () => {
   }, []);
 
 
+  const [success, setSuccess] = useState(false)
+  const [num1, setNum1] = useState(0);
+  const [num2, setNum2] = useState(0);
+  const [numError, setError]= useState('')
+  const [btnLoading, setBtnLoading] = useState(false)
+  const [apiError, setApiError] = useState({})
+  const generateNumber = () =>{
+    setNum1(Math.floor(Math.random() * 100) + 1);
+    setNum2(Math.floor(Math.random() * 100) + 1);
+  }
+  useEffect(()=>{
+    generateNumber()
+  },[])
+
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     phone: '',
     state: '',
     city: '',
-    message: ''
+    message: '',  
   })
   const handleChange = (e) =>{
     setFormData({
@@ -154,18 +168,38 @@ export const Home = () => {
       [e.target.name]: e.target.value
     })
   }
-  async function handleSubmit(e){
-    e.preventDefault()              
-    try{
-      const res = await axios.post(baseUrl+'/api/contact', formData , {
-        headers: {
-          'Content-Type': 'application/json',
-        },
-      });
-      console.log(res)
-    }catch(err){
-      console.log(err.response)
+  function handleSubmit(e){
+    e.preventDefault()            
+    setSuccess("")  
+    setApiError({})
+    async function submitForm(){
+      try{
+        const res = await axios.post(baseUrl+'/api/contact', formData , {
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        });        
+        generateNumber()             
+        e.target.check_human.value = ''
+        setSuccess(res.data.message)               
+        console.log(res)  
+      }catch(err){
+        console.log(err.response)
+        setApiError(err.response.data.errors)
+      }finally{
+        setBtnLoading(false)
+      }
     }
+
+    if(e.target.check_human.value == (num1 + num2)){
+      setBtnLoading(true)
+      submitForm()
+      setError('')            
+    }else{
+      setError('Incorrect!!!')
+      setSuccess(false) 
+    }
+
     console.log(formData)
   }      
 
@@ -410,11 +444,15 @@ export const Home = () => {
             <input type="text" name="state" placeholder="State  |" onChange={e=>handleChange(e)} required/>
             <input type="text" name="city" placeholder="City  |"onChange={e=>handleChange(e)} required/>
             <input type="text" name="message" placeholder="Message  |" onChange={e=>handleChange(e)} required/>
-            {/* <label htmlFor="check_human">what is a + b</label>
-            <input type="number" id="check_human" name="check_human" placeholder="Message  |" required /> */}
-
-            {/* <textarea placeholder="Message"></textarea> */}
-            <button type="submit">Submit</button>
+            <label forhtml="check_human">What is {num1} + {num2}? <span style={{color:'red', marginLeft:'15px'}}>{numError}</span></label>
+            <input type="number" id="check_human" name="check_human" placeholder="Are You Human?" required />
+            
+            <button type="submit" disabled={btnLoading}>{btnLoading ? <span className='btn-loader'></span>:'Submit'} </button>
+            {success && (
+              <p style={{color:"white"}}>
+                ✅ Message sent successfully!
+              </p>
+            )}
           </form>
         </div>
       </div>
