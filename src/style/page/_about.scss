@@ -198,9 +198,9 @@
             font-family: 'Sinkin Sans 500 Medium', sans-serif;
 
             h2{
-                font-size: 63px !important;
+                font-size: 63px;
                 font-family: 'Sinkin Sans 500 Medium', sans-serif !important;
-            }
+            }        
 
             .h2_second {
                 position: relative;
@@ -219,9 +219,15 @@
                     position: relative;
                     left: -6px;
                     top: 3px;
-                    font-size: 60px !important;
+                    font-size: 60px;
                     font-family: 'Sinkin Sans 500 Medium', sans-serif !important;
 
+                }
+            }
+
+            @media (width < 800px){
+                h2, .h2_second h2{
+                    font-size: 40px;
                 }
             }
 
@@ -602,7 +608,7 @@
 
             .belowbanner{
                 p{
-                    font-size: .8rem;
+                    font-size: .9rem;
                     line-height: 1.5rem;
                 }
 

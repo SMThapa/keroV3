@@ -9,7 +9,7 @@
     max-width: 1300px;
     width: 100%;
     margin: 70px auto;
-    padding: 0 25px;
+    padding: 0 15px;
   }
 
   .content {
@@ -78,6 +78,10 @@
       display: grid;
       grid-template-columns: 1fr 1fr 1fr 0.5fr;
       gap: 25px;
+
+      @media (width < 800px){
+        grid-template-columns: 1fr;
+      }
 
       .filterSection {
         padding: 10px 15px;
@@ -222,6 +226,22 @@
 
         &:hover {
           text-decoration: underline;
+        }
+      }
+    }
+    @media (width < 800px){
+      .blog-card-img{
+        max-width: 500px;
+        width: 100%;
+      }
+      .blog-card-content{
+        .blog-title{
+          font-size: 1.1rem;
+          margin-bottom: 12px;
+          display: block;
+        }
+        .blog-desc{
+          font-size: .9rem;
         }
       }
     }

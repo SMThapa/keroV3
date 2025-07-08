@@ -403,6 +403,18 @@
         }
     }
 
+    .store-card{
+        
+        .text-header{        
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 12px;
+            color: #003253;
+        }
+    }
+
     .all-location-list{
         padding: 25px 25px;
         .grid-items{

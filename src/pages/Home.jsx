@@ -209,9 +209,7 @@ export const Home = () => {
     }
 
     console.log(formData)
-  }      
-
-  console.log(catelogueData?.categories)
+  }        
 
   return (
     <main className="home">
@@ -457,7 +455,7 @@ export const Home = () => {
             <input type="text" name="name" placeholder="Name  |" onChange={e=>handleChange(e)} value={formData.name} required/>
             <input type="email" name="email" placeholder="Email  |" onChange={e=>handleChange(e)} value={formData.email} required/>            
             <input type="tel" name="phone" placeholder="Phone  |" onChange={e=>handleChange(e)} value={formData.phone} required/>            
-            {apiError.phone && <span style={{color:'red', marginLeft:'15px'}}>{apiError.phone}</span>}
+            {apiError?.phone && <span style={{color:'red', marginLeft:'15px'}}>{apiError.phone}</span>}
             <input type="text" name="state" placeholder="State  |" onChange={e=>handleChange(e)} value={formData.state} required/>
             <input type="text" name="city" placeholder="City  |"onChange={e=>handleChange(e)} value={formData.city} required/>
             <input type="text" name="message" placeholder="Message  |" onChange={e=>handleChange(e)} value={formData.message} required/>
