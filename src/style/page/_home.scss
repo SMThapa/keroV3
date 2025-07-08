@@ -918,7 +918,7 @@ $text-color: #757575;
 
       h2 {
         text-transform: uppercase;
-        color: #fff;
+        color: black;
         font-size: 24px;
         margin-bottom: 22px;
         font-family: 'Sinkin Sans 500 Medium', sans-serif;
@@ -1004,11 +1004,11 @@ $text-color: #757575;
         margin-bottom: 22px;
         font-family: 'Sinkin Sans 500 Medium', sans-serif;
         font-size: 19.925px;
-        color: white;        
+        color: black;        
       }
 
       p {
-        color: $text-color;
+        color: white;
         font-size: 16px;
         line-height: 1.6;        
         font-family: 'Sinkin Sans 300 Light', sans-serif;
@@ -1085,7 +1085,7 @@ $text-color: #757575;
     background-size: 100% 100%;
     width: 100%;    
     background-repeat: no-repeat;
-    position: relative;
+    position: relative;    
 
     .inside_banner_content {                  
       text-align: center;
@@ -1207,17 +1207,19 @@ $text-color: #757575;
     background-image: url("/public/home_catalogue.png");
     background-size: 100% 100%;
     width: 100%;
-    height: 55vh;
+    min-height: 55vh;
+    height: 100%;
     background-repeat: no-repeat;
     position: relative;
+    background: $text-color;
 
     .inside_banner_content {
-      position: absolute;
-      top: 22%;
-      left: 50%;
-      transform: translate(-50%, -50%);
+      // position: absolute;
+      // top: 40px;
+      // left: 50%;
+      // transform: translate(-50%, -50%);
       text-align: center;
-      width: 91%;
+      width: 91%;      
 
       h2 {
         text-transform: uppercase;
@@ -1239,11 +1241,28 @@ $text-color: #757575;
     }
 
     .catalogue {
-      position: absolute;
-      top: 70%;
-      left: 50%;
-      transform: translateX(-50%);
+      // position: absolute;
+      // top: 70%;
+      // left: 50%;
+      // transform: translateX(-50%);
+      // padding-top: 70%;
       text-align: center;
+
+      display: grid;
+      grid-template-columns: 1fr;      
+      row-gap: 25px;
+      padding-bottom: 30px;
+      .the_catelogue{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;        
+        img{
+          height: 200px;
+          width: auto;
+        }
+      }
 
       a {
         background-color: #fff;
@@ -1285,7 +1304,7 @@ $text-color: #757575;
     .second_banner.mobile_view {      
       height: 135vh;
       background-size: 100% 100%;
-  
+      
       .inside_banner_content {
         top: 30%;
         width: 60%;

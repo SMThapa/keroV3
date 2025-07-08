@@ -211,6 +211,8 @@ export const Home = () => {
     console.log(formData)
   }      
 
+  console.log(catelogueData?.categories)
+
   return (
     <main className="home">
       <div className="homebanner">
@@ -352,10 +354,16 @@ export const Home = () => {
           <p>Browse our latest catalogue and discover the perfect bathroom solutions for your home.</p>
           {/* <button className="locate">locate a store</button> */}
         </div>
-        <div className="catalogue">
-           <a href="catalogue_aurum-master.pdf" target="_blank">Aurum Master Catalogue</a>
-          <a href="catalogue_Aurum_Sanitaryware_New_Collection.pdf"  target="_blank">Aurum Sanitaryware New Collection</a>
-          <a href="kerovit.pdf" target="_blank">General product catalogue</a>
+        <div className="catalogue">          
+          {            
+            catelogueData?.categories?.map((item, index)=>(
+              <div className="the_catelogue" key={index}>
+                <img src={item.thumbnail_image} alt="" loading="lazy" />
+                <a href={item.pdf_link} target="_blank">{item.title}</a>
+              </div>
+            ))
+          }
+
         </div>
       </div>
       <div className="second_banner desktop_view">
