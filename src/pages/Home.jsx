@@ -417,11 +417,12 @@ export const Home = () => {
         <Swiper
           modules={[Pagination]}
           spaceBetween={20}
-          slidesPerView={1}
+          slidesPerView={3}
           pagination={{ clickable: true }}
           breakpoints={{
-            640: { slidesPerView: 2 },
-            1024: { slidesPerView: 3 },
+            0: { slidesPerView: 1 },
+            640: { slidesPerView: 1 },
+            1024: { slidesPerView: 1 },            
           }}
           onSwiper={(swiper) => (swiperRefBlog.current = swiper)} // Assign Swiper instance
         >
